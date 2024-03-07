@@ -6,13 +6,13 @@ public class Animal{
 
     protected String name;
 
-    protected float weight;
+    protected double weight;
 
     protected LocalDate age;
 
     protected Owner owner;
 
-    public Animal(String name, float weight, java.time.LocalDate age, Owner owner) {
+    public Animal(String name, double weight, java.time.LocalDate age, Owner owner) {
         this.name = name;
         this.weight = weight;
         this.age = age;
@@ -30,21 +30,33 @@ public class Animal{
         System.out.println(getType() + " wakeup");
     }
 
-    private void Wakeup(int time){
+    private void Wakeup(String time){
         System.out.println(getType() + " wakeup in " + time);
     }
 
-    private void Eat(){
-        System.out.println(getType() + " eat");
+    private void Eat(double eats){
+        System.out.println(getType() + " ate " + eats + " kg of meat");
     }
 
     private void Play(){
         System.out.println(getType() + " play");
     }
 
-    public void liveCycl(){
-        Wakeup(14);
-        Eat();
+    public void toGo(){
+        System.out.println(getType() + " toGo");
+    }
+
+    public void toFly(){
+        System.out.println(getType() + " toFly");
+    }
+
+    public void toSwim(){
+        System.out.println(getType() + " toSwim");        
+    }
+
+    public void liveCycl(String time, double eats){
+        Wakeup(time);
+        Eat(eats);
         Play();
         Sleep();
     }
@@ -57,7 +69,7 @@ public class Animal{
         return name;
     }
 
-    public Float getWeight(){
+    public Double getWeight(){
         return weight;
     }
 
