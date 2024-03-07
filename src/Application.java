@@ -1,9 +1,9 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
 import Clients.*;
-import Clients.Owner;
 
 public class Application {
     public static void main() {
@@ -16,26 +16,26 @@ public class Application {
         Duck duck_1 = new Duck("Selezen", 4.5, LocalDate.now(), new Owner());
         Owl owl_1 = new Owl("CoffeOwl", 10.0, LocalDate.now(), new Owner());
 
+        // // System.out.println();
+        // // System.out.println(lion_1.getType() + ":");
+        // // System.out.println(lion_1.toString());
+        // // System.out.println(lion_2.toString());
+        // // System.out.println();
+        // // System.out.println(cat_1.getType() + ":");
+        // // System.out.println(cat_1.toString());
+        // // System.out.println();
+        // // System.out.println(dog_1.getType() + ":");
+        // // System.out.println(dog_1.toString());
+        // // System.out.println();
+        // // System.out.println(lion_1.getAge());
+        // // System.out.println(lion_1.getWeight());
+        // // lion_1.setWeight(55);
+        // // System.out.println(lion_1.getWeight());
+        // // Lion lion_3 = new Lion();
+        // // System.out.println(lion_3);
         // System.out.println();
-        // System.out.println(lion_1.getType() + ":");
-        // System.out.println(lion_1.toString());
-        // System.out.println(lion_2.toString());
+        // lion_1.liveCycl("08:00", 15.0);
         // System.out.println();
-        // System.out.println(cat_1.getType() + ":");
-        // System.out.println(cat_1.toString());
-        // System.out.println();
-        // System.out.println(dog_1.getType() + ":");
-        // System.out.println(dog_1.toString());
-        // System.out.println();
-        // System.out.println(lion_1.getAge());
-        // System.out.println(lion_1.getWeight());
-        // lion_1.setWeight(55);
-        // System.out.println(lion_1.getWeight());
-        // Lion lion_3 = new Lion();
-        // System.out.println(lion_3);
-        System.out.println();
-        lion_1.liveCycl("08:00", 15.0);
-        System.out.println();
 
         List<Animal> animal = new ArrayList<>();
         animal.add(lion_1);
@@ -48,10 +48,26 @@ public class Application {
         animal.add(owl_1);
 
         for (int i = 0; i < animal.size(); i++) {
-            System.out.println(animal.get(i).getType());
+            System.out.print(animal.get(i).getClass().getSimpleName() + " ");
             System.out.println(animal.get(i));
-            
+
         }
+        System.out.println("*****************************");
+        lion_1.liveCycle("08:00");
+        System.out.println("*****************************");
+        lion_2.liveCycle();
+        System.out.println("*****************************");
+        cat_1.liveCycle("04:00");
+        System.out.println("*****************************");
+        dog_1.liveCycle();
+        System.out.println("*****************************");
+        bird_1.liveCycle();
+        System.out.println("*****************************");
+        fish_1.liveCycle();
+        System.out.println("*****************************");
+        duck_1.liveCycle();
+        System.out.println("*****************************");
+        owl_1.liveCycle();
 
     }
 }
