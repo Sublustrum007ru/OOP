@@ -2,7 +2,7 @@ package Clients;
 
 import java.time.*;
 
-public class Animal{
+public abstract class Animal{
 
     protected String name;
 
@@ -12,16 +12,17 @@ public class Animal{
 
     protected Owner owner;
 
-    public Animal(String name, double weight, java.time.LocalDate age, Owner owner) {
+    public Animal(String name, double weight, LocalDate age, Owner owner) {
         this.name = name;
         this.weight = weight;
         this.age = age;
         this.owner = owner;
     }
     public Animal() {
-        this("Defaul_Name", 20, LocalDate.now(), new Owner());
-    }
+        this("Defaul_Name", 20, LocalDate.now(), null);
 
+    }
+/*  Old code Lesson_1
     private void Sleep(){
         System.out.println("The " + getType() + " sleep");
     }
@@ -35,69 +36,43 @@ public class Animal{
     }
 
     private void Eat(){
-        System.out.println("The" + getType() + " ate ");
+        System.out.println("The " + getType() + " ate ");
     }
 
     private void Play(){
-        if(getClass().getSimpleName().equals("Bird")){
-            System.out.println("The " + getClass().getSimpleName() + " is not playing.");
-        }else if(getClass().getSimpleName().equals("Owl")){
-            System.out.println("The " + getClass().getSimpleName() + " is not playing.");
-        }else if(getClass().getSimpleName().equals("Lion")){
+        if(getClass().getSimpleName().equals("Lion")){
             System.out.println("The " + getClass().getSimpleName() + " is playing.");
         }else if(getClass().getSimpleName().equals("Dog")){
             System.out.println("The " + getClass().getSimpleName() + " is playing.");
         }else if(getClass().getSimpleName().equals("Cat")){
             System.out.println("The " + getClass().getSimpleName() + " is playing.");
-        }else if(getClass().getSimpleName().equals("Fish")){
-            System.out.println("The " + getClass().getSimpleName() + " is not playing.");
-        }else if(getClass().getSimpleName().equals("Duck")){
-            System.out.println("The " + getClass().getSimpleName() + " is not playing.");
         }
     }
 
     public void toGo(){
-        if(getClass().getSimpleName().equals("Bird")){
-            System.out.println("The " + getClass().getSimpleName() + " is not running.");
-        }else if(getClass().getSimpleName().equals("Owl")){
-            System.out.println("The " + getClass().getSimpleName() + " is not running.");
-        }else if(getClass().getSimpleName().equals("Lion")){
+        if(getClass().getSimpleName().equals("Lion")){
             System.out.println("The " + getClass().getSimpleName() + " is running.");
         }else if(getClass().getSimpleName().equals("Dog")){
             System.out.println("The " + getClass().getSimpleName() + " is running.");
         }else if(getClass().getSimpleName().equals("Cat")){
             System.out.println("The " + getClass().getSimpleName() + " is running.");
-        }else if(getClass().getSimpleName().equals("Fish")){
-            System.out.println("The " + getClass().getSimpleName() + " is not running.");
         }else if(getClass().getSimpleName().equals("Duck")){
             System.out.println("The " + getClass().getSimpleName() + " is running.");
         }
     }
 
     public void toFly(){
-        if(getClass().getSimpleName().equals("Bird")){
+        if(getClass().getSimpleName().equals("Falcon")){
             System.out.println("The " + getClass().getSimpleName() + " is flying.");
         }else if(getClass().getSimpleName().equals("Owl")){
             System.out.println("The " + getClass().getSimpleName() + " is flying.");
-        }else if(getClass().getSimpleName().equals("Lion")){
-            System.out.println("The " + getClass().getSimpleName() + " is not flying.");
-        }else if(getClass().getSimpleName().equals("Dog")){
-            System.out.println("The " + getClass().getSimpleName() + " is not flying.");
-        }else if(getClass().getSimpleName().equals("Cat")){
-            System.out.println("The " + getClass().getSimpleName() + " is not flying.");
-        }else if(getClass().getSimpleName().equals("Fish")){
-            System.out.println("The " + getClass().getSimpleName() + " is not flying.");
         }else if(getClass().getSimpleName().equals("Duck")){
             System.out.println("The " + getClass().getSimpleName() + " is flying.");
         }
     }
 
     public void toSwim(){
-        if(getClass().getSimpleName().equals("Bird")){
-            System.out.println("The " + getClass().getSimpleName() + " is not swim.");
-        }else if(getClass().getSimpleName().equals("Owl")){
-            System.out.println("The " + getClass().getSimpleName() + " is not swim.");
-        }else if(getClass().getSimpleName().equals("Lion")){
+        if(getClass().getSimpleName().equals("Lion")){
             System.out.println("The " + getClass().getSimpleName() + " is swim.");
         }else if(getClass().getSimpleName().equals("Dog")){
             System.out.println("The " + getClass().getSimpleName() + " is swim.");
@@ -128,6 +103,9 @@ public class Animal{
         toSwim();
         Sleep();
     }
+*/
+
+    public abstract void eat();
 
     public String getType(){
         return getClass().getSimpleName();

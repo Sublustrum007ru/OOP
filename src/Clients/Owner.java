@@ -4,8 +4,10 @@ public class Owner{
 
     public String name;
 
+    public String toString(String args){
+        return args;
+    }
     public String toString(){
-        name = "Sublustrum007";
-        return name;
+        return "Sublustrum007";
     }
 }
