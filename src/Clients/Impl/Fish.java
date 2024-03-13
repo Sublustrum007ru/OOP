@@ -1,8 +1,7 @@
-package Clients.Impl;
-
-import Clients.Animal;
-import Clients.Owner;
-import Clients.Swimmable;
+package OOP.src.Clients.Impl;
+import OOP.src.Clients.Animal;
+import OOP.src.Clients.Owner;
+import OOP.src.Clients.Swimmable;
 
 public class Fish extends Animal implements Swimmable{
     public Fish(String name, double weight, java.time.LocalDate age, Owner owner){

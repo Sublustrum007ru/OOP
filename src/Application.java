@@ -1,10 +1,8 @@
-import Clients.*;
-import Clients.Impl.*;
+package OOP.src;
 
+import OOP.src.Clients.*;
+import OOP.src.Clients.Impl.*;
 import java.time.*;
-import java.util.List;
-
-import java.util.ArrayList;
 
 public class Application {
 
@@ -13,13 +11,16 @@ public class Application {
         System.out.flush();
     }
 
-    public static void main() {
+    public static void app() {
         clearScreen();
         System.out.println("*****************************");
 
-        Personal doctor_1 = new Doctor("Altair", "Doctor", LocalDate.of(1986, 3, 31), 13.2);
-        Personal nurse_1 = new Nurse("Tusia", "Nurse", LocalDate.of(2005, 10, 16), 5);
-
+        Personal doctor_1 = new Doctor("Altair", "Doctor", LocalDate.of(1986, 3, 31), LocalDate.of(2010, 1, 10),
+                LocalDate.now(), 1);
+        Personal nurse_1 = new Nurse("Tusia", "Nurse", LocalDate.of(2005, 10, 16), LocalDate.of(2016, 1, 17),
+                LocalDate.now(), 1);
+        Personal doctor_2 = new Doctor("Viktor", "Doctor", LocalDate.of(1990, 12, 15), LocalDate.of(2011, 3, 25),
+                LocalDate.now(), 1);
         Animal falcon_1 = new Falcon();
         Animal owl_1 = new Owl("CoffeOwl", 12.5, LocalDate.of(2002, 10, 20), new Owner());
         Animal lion_1 = new Lion("Pushok", 12.2, LocalDate.of(2002, 3, 15), new Owner());
@@ -34,24 +35,36 @@ public class Application {
          */
         Animal duck_1 = new Ducks("Selezen", 3.2, LocalDate.of(2022, 3, 6), new Owner());
 
-        List<Personal> personalList = new ArrayList<>();
-        personalList.add(doctor_1);
-        personalList.add(nurse_1);
+        VeterenaryClinic.addPersonal(doctor_1);
+        VeterenaryClinic.addPersonal(nurse_1);
 
-        for (int i = 0; i < personalList.size(); i++) {
-            System.out.println(personalList.get(i));
-            
-        }
-        List<Animal> animalList = new ArrayList<>();
-        animalList.add(falcon_1);
-        animalList.add(owl_1);
-        animalList.add(lion_1);
-        animalList.add(dog_1);
-        animalList.add(cat_1);
-        animalList.add(fish_1);
-        animalList.add(duck_1);
-
-        whosFly(animalList);
+        VeterenaryClinic.addPatient(falcon_1);
+        VeterenaryClinic.addPatient(owl_1);
+        VeterenaryClinic.addPatient(lion_1);
+        VeterenaryClinic.addPatient(dog_1);
+        VeterenaryClinic.addPatient(cat_1);
+        VeterenaryClinic.addPatient(fish_1);
+        VeterenaryClinic.addPatient(duck_1);
+        System.out.println("*****************************");
+        System.out.println("Список тех кто умеет летать");
+        VeterenaryClinic.whosFly();
+        System.out.println("Список тех кто умеет бегать");
+        VeterenaryClinic.whosGo();
+        System.out.println("Список тех кто умеет плавать");
+        VeterenaryClinic.whosSwimm();
+        System.out.println("*****************************");
+        System.out.println("Cписок докторов");
+        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("Список медсестер");
+        VeterenaryClinic.whoPersonal("Nurse");
+        System.out.println("*****************************");
+        VeterenaryClinic.addPersonal(doctor_2);
+        System.out.println("Список докторов после добавление нового");
+        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("*****************************");
+        VeterenaryClinic.delPersonal("Altair");
+        System.out.println("Список докторов после удаление");
+        VeterenaryClinic.whoPersonal("Doctor");
 
     }
 

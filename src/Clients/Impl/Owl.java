@@ -1,8 +1,8 @@
-package Clients.Impl;
+package OOP.src.Clients.Impl;
 
-import Clients.Animal;
-import Clients.Flyable;
-import Clients.Owner;
+import OOP.src.Clients.Animal;
+import OOP.src.Clients.Flyable;
+import OOP.src.Clients.Owner;
 
 public class Owl extends Animal implements Flyable{
     public Owl(String name, double weight, java.time.LocalDate age, Owner owner){

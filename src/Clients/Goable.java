@@ -1,4 +1,4 @@
-package Clients;
+package OOP.src.Clients;
 
 public interface Goable {
     

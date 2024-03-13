@@ -1,4 +1,4 @@
-// package OOP.src;
+package OOP.src;
 
 import java.time.LocalDate;
 
@@ -6,17 +6,23 @@ public abstract class Personal {
 
     protected String name;
 
-    protected LocalDate age;
-
-    protected double workExperience;
-
     protected String jobTitle;
 
-    public Personal(String name, String jobTitle, LocalDate age, double workExperience) {
+    protected LocalDate age;
+
+    protected LocalDate startDate;
+
+    protected LocalDate endDate = LocalDate.now();
+
+    protected double workExperience = CalcAge.calculateAge(startDate);
+
+    public Personal(String name, String jobTitle, LocalDate age, LocalDate startDate, LocalDate endDate, double workExperience) {
         this.name = name;
         this.jobTitle = jobTitle;
         this.age = age;
-        this.workExperience = workExperience;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.workExperience = CalcAge.calculateAge(startDate);
 
     }
 
@@ -36,17 +42,45 @@ public abstract class Personal {
         return age;
     }
 
+    public LocalDate getStartDate(){
+        return startDate;
+    }
+
+    public LocalDate getEndDate(){
+        return endDate;
+    }
+
     public double getWorkExperience() {
         return workExperience;
     }
 
-    public String setJobTitle(String jobString) {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
+    public void setAge(LocalDate age) {
+        this.age = age;
+    }
+
+    public void setStartDate(LocalDate startDate){
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate){
+        this.endDate = endDate;
+    }
+    public void setWorkExperience(double workExperience) {
+        this.workExperience = workExperience;
+    }
+
     public String toString() {
-        return String.format("name = %s, jobTitlte = %s, age = %s, workExperience = %s лет", name, jobTitle, age,
+        return String.format("name = %s, jobTitlte = %s, age = %s, startDate = %s, endDate = %s, workExperience = %s лет", name, jobTitle, age, startDate, endDate,
                 workExperience);
     }
+
 
 }

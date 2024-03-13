@@ -1,9 +1,11 @@
+package OOP.src;
+
 import java.time.LocalDate;
-import OOP.scr.Personal;
+
 
 public class Nurse  extends Personal{
-    public Nurse(String name, String jobTitle, LocalDate age, double workExperience){
-        super(name, jobTitle, age, workExperience);
+    public Nurse(String name, String jobTitle, LocalDate age, LocalDate startDate, LocalDate endDate, double workExperience){
+        super(name, jobTitle, age, startDate, endDate, CalcAge.calculateAge(startDate));
     }
 
     public void givesVitamins(){
