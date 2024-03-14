@@ -5,9 +5,13 @@ import OOP.src.VeterinaryClinic.Clients.*;
 import OOP.src.VeterinaryClinic.Clients.Impl.*;
 import OOP.src.VeterinaryClinic.Personals.*;
 import OOP.src.VeterinaryClinic.Personals.Impl.*;
-
-
+import OOP.src.VeterinaryClinic.Pharmacy.*;
+import OOP.src.VeterinaryClinic.Pharmacy.Impl.*;
 import java.time.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 public class Application {
 
@@ -18,7 +22,7 @@ public class Application {
 
     public static void app() {
         clearScreen();
-        System.out.println("*****************************");
+
 
         Personal doctor_1 = new Doctor("Altair", "Doctor", LocalDate.of(1986, 3, 31), LocalDate.of(2010, 1, 10),
                 LocalDate.now(), 1);
@@ -51,25 +55,68 @@ public class Application {
         VeterenaryClinic.addPatient(fish_1);
         VeterenaryClinic.addPatient(duck_1);
         System.out.println("*****************************");
-        System.out.println("Список тех кто умеет летать");
-        VeterenaryClinic.whosFly();
-        System.out.println("Список тех кто умеет бегать");
-        VeterenaryClinic.whosGo();
-        System.out.println("Список тех кто умеет плавать");
-        VeterenaryClinic.whosSwimm();
+        System.out.println("Начало вывода информации");
         System.out.println("*****************************");
-        System.out.println("Cписок докторов");
-        VeterenaryClinic.whoPersonal("Doctor");
-        System.out.println("Список медсестер");
-        VeterenaryClinic.whoPersonal("Nurse");
+//        System.out.println("Список тех кто умеет летать");
+//        VeterenaryClinic.whosFly();
+//        System.out.println("Список тех кто умеет бегать");
+//        VeterenaryClinic.whosGo();
+//        System.out.println("Список тех кто умеет плавать");
+//        VeterenaryClinic.whosSwimm();
+//        System.out.println("*****************************");
+//        System.out.println("Cписок докторов");
+//        VeterenaryClinic.whoPersonal("Doctor");
+//        System.out.println("Список медсестер");
+//        VeterenaryClinic.whoPersonal("Nurse");
+//        System.out.println("*****************************");
+//        VeterenaryClinic.addPersonal(doctor_2);
+//        System.out.println("Список докторов после добавление нового");
+//        VeterenaryClinic.whoPersonal("Doctor");
+//        System.out.println("*****************************");
+//        VeterenaryClinic.delPersonal("Altair");
+//        System.out.println("Список докторов после удаление");
+//        VeterenaryClinic.whoPersonal("Doctor");
+//        System.out.println("*****************************");
+
+        Asitromin asitromin = new Asitromin("Asitromin", 50, 25);
+        Pinicilin pinicilin = new Pinicilin("Pinicilin", 30, 50);
+        Vetbicid vetbicid = new Vetbicid("Vetbicid", 20, 30);
+
+        Medecine medecine_1 = new Medecine()
+                .addComponent(asitromin)
+                .addComponent(pinicilin)
+                .addComponent(vetbicid);
+
+        Iterator<MedecineComponents> med = medecine_1;
         System.out.println("*****************************");
-        VeterenaryClinic.addPersonal(doctor_2);
-        System.out.println("Список докторов после добавление нового");
-        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("Использовался: Iterator");
+        while(medecine_1.hasNext()){
+            System.out.println(med.next());
+        }
+
+        Medecine_2 medecine_2 = new Medecine_2();
+        medecine_2.addComponent(asitromin).addComponent(pinicilin).addComponent(vetbicid);
+
         System.out.println("*****************************");
-        VeterenaryClinic.delPersonal("Altair");
-        System.out.println("Список докторов после удаление");
-        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("Использовался: Iterable");
+        for (MedecineComponents component : medecine_2){
+            System.out.println(component);
+        }
+
+        ArrayList<MedecineComponents> medList = new ArrayList<>();
+        medList.add(asitromin);
+        medList.add(pinicilin);
+        medList.add(vetbicid);
+        System.out.println("*****************************");
+        System.out.println("Не сортированный список препаратов");
+        System.out.println(medList);
+        Collections.sort(medList);
+        System.out.println("*****************************");
+        System.out.println("Отсортированный список препаратов");
+        System.out.println(medList);
+
+
+
 
     }
 

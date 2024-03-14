@@ -2,15 +2,12 @@ package OOP.src.VeterinaryClinic;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import OOP.src.VeterinaryClinic.Clients.*;
 import OOP.src.VeterinaryClinic.Personals.Personal;
 
 public class VeterenaryClinic {
-
     private static List<Personal> personalList = new ArrayList<>();
     private static List<Animal> patientslList = new ArrayList<>();
-
     public static void addPersonal(Personal personal) {
         personalList.add(personal);
     }

@@ -1,23 +1,17 @@
 package OOP.src.VeterinaryClinic.Personals;
 
 import java.time.LocalDate;
-
 import OOP.src.CalcAge;
 
 public abstract class Personal {
 
     protected String name;
-
     protected String jobTitle;
 
     protected LocalDate age;
-
     protected LocalDate startDate;
-
     protected LocalDate endDate = LocalDate.now();
-
     protected double workExperience = CalcAge.calculateAge(startDate);
-
     public Personal(String name, String jobTitle, LocalDate age, LocalDate startDate, LocalDate endDate, double workExperience) {
         this.name = name;
         this.jobTitle = jobTitle;
