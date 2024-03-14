@@ -8,10 +8,7 @@ import OOP.src.VeterinaryClinic.Personals.Impl.*;
 import OOP.src.VeterinaryClinic.Pharmacy.*;
 import OOP.src.VeterinaryClinic.Pharmacy.Impl.*;
 import java.time.*;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Application {
 
@@ -57,66 +54,68 @@ public class Application {
         System.out.println("*****************************");
         System.out.println("Начало вывода информации");
         System.out.println("*****************************");
-//        System.out.println("Список тех кто умеет летать");
-//        VeterenaryClinic.whosFly();
-//        System.out.println("Список тех кто умеет бегать");
-//        VeterenaryClinic.whosGo();
-//        System.out.println("Список тех кто умеет плавать");
-//        VeterenaryClinic.whosSwimm();
-//        System.out.println("*****************************");
-//        System.out.println("Cписок докторов");
-//        VeterenaryClinic.whoPersonal("Doctor");
-//        System.out.println("Список медсестер");
-//        VeterenaryClinic.whoPersonal("Nurse");
-//        System.out.println("*****************************");
-//        VeterenaryClinic.addPersonal(doctor_2);
-//        System.out.println("Список докторов после добавление нового");
-//        VeterenaryClinic.whoPersonal("Doctor");
-//        System.out.println("*****************************");
-//        VeterenaryClinic.delPersonal("Altair");
-//        System.out.println("Список докторов после удаление");
-//        VeterenaryClinic.whoPersonal("Doctor");
-//        System.out.println("*****************************");
+        System.out.println("Список тех кто умеет летать");
+        VeterenaryClinic.whosFly();
+        System.out.println("Список тех кто умеет бегать");
+        VeterenaryClinic.whosGo();
+        System.out.println("Список тех кто умеет плавать");
+        VeterenaryClinic.whosSwimm();
+        System.out.println("*****************************");
+        System.out.println("Cписок докторов");
+        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("Список медсестер");
+        VeterenaryClinic.whoPersonal("Nurse");
+        System.out.println("*****************************");
+        VeterenaryClinic.addPersonal(doctor_2);
+        System.out.println("Список докторов после добавление нового");
+        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("*****************************");
+        VeterenaryClinic.delPersonal("Viktor");
+        System.out.println("Список докторов после удаление");
+        VeterenaryClinic.whoPersonal("Doctor");
+        System.out.println("*****************************");
 
         Asitromin asitromin = new Asitromin("Asitromin", 50, 25);
         Pinicilin pinicilin = new Pinicilin("Pinicilin", 30, 50);
         Vetbicid vetbicid = new Vetbicid("Vetbicid", 20, 30);
+        Borax borax = new Borax("Borax", 15, 17);
+        Biotin biotin = new Biotin("Biotin", 60, 5);
 
-        Medecine medecine_1 = new Medecine()
+        Medecine medecine_1 = new Medecine("medecine_1")
                 .addComponent(asitromin)
+                .addComponent(biotin);
+
+        Medecine medecine_2 = new Medecine("medecine_2")
                 .addComponent(pinicilin)
+                .addComponent(biotin);
+
+        Medecine medecine_3 = new Medecine("medecine_3")
                 .addComponent(vetbicid);
 
-        Iterator<MedecineComponents> med = medecine_1;
+        Medecine medecine_4 = new Medecine("medecine_4")
+                .addComponent(asitromin)
+                .addComponent(vetbicid)
+                .addComponent(borax);
+
+        Medecine medecine_5 = new Medecine("medecine_5")
+                .addComponent(asitromin)
+                .addComponent(biotin)
+                .addComponent(borax)
+                .addComponent(vetbicid)
+                .addComponent(pinicilin);
+
+        List<Medecine> medecineList = new ArrayList<>();
+        medecineList.add(medecine_1);
+        medecineList.add(medecine_5);
+        medecineList.add(medecine_4);
+        medecineList.add(medecine_3);
+        medecineList.add(medecine_2);
         System.out.println("*****************************");
-        System.out.println("Использовался: Iterator");
-        while(medecine_1.hasNext()){
-            System.out.println(med.next());
-        }
-
-        Medecine_2 medecine_2 = new Medecine_2();
-        medecine_2.addComponent(asitromin).addComponent(pinicilin).addComponent(vetbicid);
-
+        System.out.println("Не отсортированный список Medecine");
+        Medecine.printMedecineList(medecineList);
         System.out.println("*****************************");
-        System.out.println("Использовался: Iterable");
-        for (MedecineComponents component : medecine_2){
-            System.out.println(component);
-        }
-
-        ArrayList<MedecineComponents> medList = new ArrayList<>();
-        medList.add(asitromin);
-        medList.add(pinicilin);
-        medList.add(vetbicid);
-        System.out.println("*****************************");
-        System.out.println("Не сортированный список препаратов");
-        System.out.println(medList);
-        Collections.sort(medList);
-        System.out.println("*****************************");
-        System.out.println("Отсортированный список препаратов");
-        System.out.println(medList);
-
-
-
+        System.out.println("Отсортированный список Medecine");
+        Medecine.printMedecineSort(medecineList);
 
     }
 

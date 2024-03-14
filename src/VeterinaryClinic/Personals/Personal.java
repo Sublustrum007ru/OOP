@@ -23,53 +23,66 @@ public abstract class Personal {
     }
 
     public String getType() {
+
         return getClass().getSimpleName();
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getJobTitle() {
+
         return jobTitle;
     }
 
     public LocalDate getAge() {
+
         return age;
     }
 
     public LocalDate getStartDate(){
+
         return startDate;
     }
 
     public LocalDate getEndDate(){
+
         return endDate;
     }
 
     public double getWorkExperience() {
+
         return workExperience;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public void setJobTitle(String jobTitle) {
+
         this.jobTitle = jobTitle;
     }
 
     public void setAge(LocalDate age) {
+
         this.age = age;
     }
 
     public void setStartDate(LocalDate startDate){
+
         this.startDate = startDate;
     }
 
     public void setEndDate(LocalDate endDate){
+
         this.endDate = endDate;
     }
     public void setWorkExperience(double workExperience) {
+
         this.workExperience = workExperience;
     }
 

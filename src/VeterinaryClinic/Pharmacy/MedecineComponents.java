@@ -41,4 +41,7 @@ public abstract class MedecineComponents implements Comparable<MedecineComponent
                 '}';
     }
 
+    public String getName() {
+        return getClass().getSimpleName();
+    }
 }

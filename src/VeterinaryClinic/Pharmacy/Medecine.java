@@ -1,13 +1,20 @@
 package OOP.src.VeterinaryClinic.Pharmacy;
 
+import OOP.src.VeterinaryClinic.Pharmacy.Impl.Asitromin;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Medecine implements Iterator<MedecineComponents>, Comparable<Medecine>{
+public class Medecine implements Iterable<MedecineComponents>, Comparable<Medecine> {
     private List<MedecineComponents> components;
     private int index;
-    public Medecine(){
+
+    private String name;
+
+    public Medecine(String name){
+        this.name = name;
         this.components = new ArrayList<>();
         this.index = 0;
     }
@@ -15,25 +22,47 @@ public class Medecine implements Iterator<MedecineComponents>, Comparable<Medeci
         components.add(component);
         return this;
     }
+    public String getName(){
+        return name;
+    }
 
-    @Override
-    public int compareTo(Medecine component) {
-        return 0;
+    public static void printMedecineList(List<Medecine> medecineList){
+        Collections.sort(medecineList);
+        for(Medecine list1 : medecineList){
+            System.out.println(list1.getName());
+        }
+    }
+    public static void printMedecineSort(List<Medecine> medecineList){
+        Collections.sort(medecineList);
+        for(Medecine list1 : medecineList){
+            System.out.println(list1.getName());
+        }
     }
 
     @Override
-    public boolean hasNext(){
+    public Iterator<MedecineComponents> iterator() {
+        return new Iterator<MedecineComponents>() {
+            @Override
+            public boolean hasNext() {
+                return index < components.size();
+            }
 
-        return index < components.size();
+            @Override
+            public MedecineComponents next() {
+                return components.get(index++);
+            }
+        };
+
     }
-    @Override
-    public MedecineComponents next(){
 
-        return components.get(index++);
+    @Override
+    public int compareTo(Medecine o) {
+        return name.compareTo(o.name);
     }
 
     public String toString(){
 
-        return "Medecine: " + components.toString();
+        return "Medecine: " + name + components.toString();
     }
+
 }
