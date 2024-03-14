@@ -1,6 +1,9 @@
-package OOP.src;
+package OOP.src.VeterinaryClinic.Personals.Impl;
 
 import java.time.LocalDate;
+
+import OOP.src.CalcAge;
+import OOP.src.VeterinaryClinic.Personals.Personal;
 
 
 public class Nurse  extends Personal{

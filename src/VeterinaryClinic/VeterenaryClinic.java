@@ -1,9 +1,10 @@
-package OOP.src;
+package OOP.src.VeterinaryClinic;
 
 import java.util.List;
 import java.util.ArrayList;
 
-import OOP.src.Clients.*;
+import OOP.src.VeterinaryClinic.Clients.*;
+import OOP.src.VeterinaryClinic.Personals.Personal;
 
 public class VeterenaryClinic {
 

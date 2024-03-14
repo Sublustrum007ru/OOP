@@ -1,9 +1,6 @@
-package OOP.src.Clients.Impl;
+package OOP.src.VeterinaryClinic.Clients.Impl;
 
-import OOP.src.Clients.Animal;
-import OOP.src.Clients.Goable;
-import OOP.src.Clients.Owner;
-import OOP.src.Clients.Swimmable;
+import OOP.src.VeterinaryClinic.Clients.*;
 
 public class Lion extends Animal implements Swimmable, Goable{
     public Lion (String name, double weight, java.time.LocalDate age, Owner owner){

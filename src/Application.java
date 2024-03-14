@@ -1,7 +1,12 @@
 package OOP.src;
 
-import OOP.src.Clients.*;
-import OOP.src.Clients.Impl.*;
+import OOP.src.VeterinaryClinic.*;
+import OOP.src.VeterinaryClinic.Clients.*;
+import OOP.src.VeterinaryClinic.Clients.Impl.*;
+import OOP.src.VeterinaryClinic.Personals.*;
+import OOP.src.VeterinaryClinic.Personals.Impl.*;
+
+
 import java.time.*;
 
 public class Application {

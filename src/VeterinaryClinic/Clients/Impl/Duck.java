@@ -1,6 +1,6 @@
-package OOP.src.Clients.Impl;
+package OOP.src.VeterinaryClinic.Clients.Impl;
 
-import OOP.src.Clients.*;
+import OOP.src.VeterinaryClinic.Clients.*;
 
 public class Duck extends Animal implements Flyable, Swimmable, Goable{
     public Duck(String name, double weight, java.time.LocalDate age, Owner owner){

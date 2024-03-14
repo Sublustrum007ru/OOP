@@ -1,4 +1,4 @@
-package OOP.src.Clients;
+package OOP.src.VeterinaryClinic.Clients;
 
 public class Owner{
 
