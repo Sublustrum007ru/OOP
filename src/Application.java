@@ -7,17 +7,21 @@ import OOP.src.VeterinaryClinic.Personals.*;
 import OOP.src.VeterinaryClinic.Personals.Impl.*;
 import OOP.src.VeterinaryClinic.Pharmacy.*;
 import OOP.src.VeterinaryClinic.Pharmacy.Impl.*;
+
+
 import java.time.*;
 import java.util.*;
 
+
+
 public class Application {
 
-    public static void clearScreen() {
+    public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    public static void app() {
+    public void app(){
         clearScreen();
 
 
@@ -81,23 +85,23 @@ public class Application {
         Borax borax = new Borax("Borax", 15, 17);
         Biotin biotin = new Biotin("Biotin", 60, 5);
 
-        Medecine medecine_1 = new Medecine("medecine_1")
+        Medecine medecine_1 = new Medecine()
                 .addComponent(asitromin)
                 .addComponent(biotin);
 
-        Medecine medecine_2 = new Medecine("medecine_2")
+        Medecine medecine_2 = new Medecine()
                 .addComponent(pinicilin)
                 .addComponent(biotin);
 
-        Medecine medecine_3 = new Medecine("medecine_3")
+        Medecine medecine_3 = new Medecine()
                 .addComponent(vetbicid);
 
-        Medecine medecine_4 = new Medecine("medecine_4")
+        Medecine medecine_4 = new Medecine()
                 .addComponent(asitromin)
                 .addComponent(vetbicid)
                 .addComponent(borax);
 
-        Medecine medecine_5 = new Medecine("medecine_5")
+        Medecine medecine_5 = new Medecine()
                 .addComponent(asitromin)
                 .addComponent(biotin)
                 .addComponent(borax)
@@ -107,15 +111,16 @@ public class Application {
         List<Medecine> medecineList = new ArrayList<>();
         medecineList.add(medecine_1);
         medecineList.add(medecine_5);
-        medecineList.add(medecine_4);
         medecineList.add(medecine_3);
         medecineList.add(medecine_2);
-        System.out.println("*****************************");
-        System.out.println("Не отсортированный список Medecine");
-        Medecine.printMedecineList(medecineList);
-        System.out.println("*****************************");
-        System.out.println("Отсортированный список Medecine");
-        Medecine.printMedecineSort(medecineList);
+        medecineList.add(medecine_4);
+
+
+        System.out.println();
+        for(Medecine s : medecineList){
+            System.out.println(Medecine.createName(s) + " : " + s);
+        }
+
 
     }
 

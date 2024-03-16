@@ -1,42 +1,34 @@
 package OOP.src.VeterinaryClinic.Pharmacy;
 
-import OOP.src.VeterinaryClinic.Pharmacy.Impl.Asitromin;
+import org.w3c.dom.ls.LSOutput;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
-public class Medecine implements Iterable<MedecineComponents>, Comparable<Medecine> {
+public class Medecine implements Iterable<MedecineComponents>, Comparable<Medecine>{
     private List<MedecineComponents> components;
     private int index;
 
-    private String name;
-
-    public Medecine(String name){
-        this.name = name;
+    public Medecine(){
         this.components = new ArrayList<>();
         this.index = 0;
     }
+
     public Medecine addComponent(MedecineComponents component){
         components.add(component);
         return this;
     }
-    public String getName(){
-        return name;
+    public static void printList(List<Medecine> medecineList){
+        for(Medecine medecine : medecineList){
+            System.out.println(medecine);
+        }
     }
 
-    public static void printMedecineList(List<Medecine> medecineList){
-        Collections.sort(medecineList);
-        for(Medecine list1 : medecineList){
-            System.out.println(list1.getName());
+    public static String createName(Medecine componentList){
+        String name = "";
+        for(MedecineComponents list : componentList){
+            name = name + list.getName();
         }
-    }
-    public static void printMedecineSort(List<Medecine> medecineList){
-        Collections.sort(medecineList);
-        for(Medecine list1 : medecineList){
-            System.out.println(list1.getName());
-        }
+        return name;
     }
 
     @Override
@@ -57,12 +49,12 @@ public class Medecine implements Iterable<MedecineComponents>, Comparable<Medeci
 
     @Override
     public int compareTo(Medecine o) {
-        return name.compareTo(o.name);
+        return getClass().getSimpleName().compareTo(o.getClass().getSimpleName());
     }
 
     public String toString(){
 
-        return "Medecine: " + name + components.toString();
+        return "Medecine: " + components.toString();
     }
 
 }
