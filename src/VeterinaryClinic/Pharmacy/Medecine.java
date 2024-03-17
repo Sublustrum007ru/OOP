@@ -76,7 +76,8 @@ public class Medecine implements Iterable<MedecineComponents>, Comparable<Medeci
 
     @Override
     public int compareTo(Medecine o) {
-        Collections.sort(this.components, new Comparator<MedecineComponents>() {//           @Override
+        Collections.sort(this.components, new Comparator<MedecineComponents>() {
+            @Override
             public int compare(MedecineComponents o1, MedecineComponents o2) {
                 return Double.compare(o1.getPower(), o2.getPower());
             }
