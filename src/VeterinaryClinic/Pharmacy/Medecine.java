@@ -72,30 +72,34 @@ public class Medecine implements Iterable<MedecineComponents>, Comparable<Medeci
     * Подсмотрел решение у одногрупника, у него написана сортировка по общей силе действующих компонентов
     * Так же и произведена сортировка самих компоненотво по возрастанию силы действующих компонентов
     *
+    *
+    * Переписал его код для работы с имп=енами компонентов.
+    * Но все равное не доконца понял как он работает.
     */
 
     @Override
     public int compareTo(Medecine o) {
-        Collections.sort(this.components, new Comparator<MedecineComponents>() {//           @Override
+        Collections.sort(this.components, new Comparator<MedecineComponents>() {
+            @Override
             public int compare(MedecineComponents o1, MedecineComponents o2) {
-                return Double.compare(o1.getPower(), o2.getPower());
+                return o1.getName().compareTo(o2.getName());
             }
         });
        Collections.sort(o.components, new Comparator<MedecineComponents>() {
             @Override
             public int compare(MedecineComponents o1, MedecineComponents o2) {
-                return Double.compare(o1.getPower(), o2.getPower());
+                return o1.getName().compareTo(o2.getName());
             }
         });
-        double totalPower1 = 0;
+        String name1 = "";
         for (MedecineComponents component : this.components){
-            totalPower1 += component.getPower();
+            name1 += component.getName();
         }
-        double totalPower2 = 0;
+        String name2 = "";
         for (MedecineComponents component : o.components){
-            totalPower2 += component.getPower();
+            name2 += component.getName();
         }
-        return Double.compare(totalPower1, totalPower2);
+        return name1.compareTo(name2);
     }
 
     public String toString(){
