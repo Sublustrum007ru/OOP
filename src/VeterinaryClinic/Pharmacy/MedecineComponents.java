@@ -16,6 +16,10 @@ public abstract class MedecineComponents implements Comparable<MedecineComponent
         return weight;
     }
 
+    public int getPower(){
+        return power;
+    }
+
     @Override
     public int compareTo(MedecineComponents component) {
         return power - component.power;

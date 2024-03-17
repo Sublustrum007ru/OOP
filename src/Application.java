@@ -8,7 +8,6 @@ import OOP.src.VeterinaryClinic.Personals.Impl.*;
 import OOP.src.VeterinaryClinic.Pharmacy.*;
 import OOP.src.VeterinaryClinic.Pharmacy.Impl.*;
 
-
 import java.time.*;
 import java.util.*;
 
@@ -117,9 +116,11 @@ public class Application {
 
 
         System.out.println();
-        for(Medecine s : medecineList){
-            System.out.println(Medecine.createName(s) + " : " + s);
-        }
+        Medecine.printList(medecineList);
+        System.out.println();
+
+        Collections.sort(medecineList);
+        Medecine.printList(medecineList);
 
 
     }
